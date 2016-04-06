@@ -38,7 +38,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="<%= root_path %>">Sale Project</a>
+        <a class="brand" href="<%= root_path %>">Balanço</a>
         <div class="nav-collapse">
           <ul class="nav">
             <li class="active">
@@ -67,7 +67,7 @@
             <li class="divider-vertical"></li>
             <% if session[:auth] %>
               <li style="margin-top: 1.5%;">
-                Bem-vindo, <%= session[:auth][:info][:name] %>!
+                Bem-vindo, <%= session["auth"]["info"]["name"] %>!
               </li>
               <li class="divider-vertical"></li>
               <li>

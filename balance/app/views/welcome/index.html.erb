@@ -4,5 +4,5 @@
   <p>
     <%= number_to_currency @price, unit: "R$ ", separator: ',', delimiter: '.' %>
   </p>
-  <%= link_to "Nova Receita »", sales_new_path, class: "btn btn-primary btn-large" if session[:auth] %>
+  <%= link_to "Nova Receita »", balances_new_path, class: "btn btn-primary btn-large" if session[:auth] %>
 </div>
