@@ -1,0 +1,8 @@
+<div class="hero-unit">
+  <h1>Receita Bruta Total</h1>
+  <span class="label label-success"><%= flash[:notice] %></span>
+  <p>
+    <%= number_to_currency @price, unit: "R$ ", separator: ',', delimiter: '.' %>
+  </p>
+  <%= link_to "Nova Receita »", sales_new_path, class: "btn btn-primary btn-large" if session[:auth] %>
+</div>

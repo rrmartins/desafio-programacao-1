@@ -1,14 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Balance</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+   <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+
+      footer {
+        height: 100px;
+        width:100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+
+      footer p {
+        text-align: center;
+      }
+    </style>
 </head>
+
 <body>
 
-<%= yield %>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="<%= root_path %>">Sale Project</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active">
+              <a href="<%= root_path %>">Home</a>
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+              <%= link_to image_tag('twitter.png'), "http://twitter.com/rr_martins", target: "_blank" %>
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+              <%= link_to image_tag('linked_in.png'), "http://www.linkedin.com/in/rrmartins", target: "_blank" %>
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+              <%= link_to image_tag('github.png'), "http://github.com/rrmartins", target: "_blank" %>
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+              <%= link_to image_tag('facebook.png'), "http://www.facebook.com/rr.martins.j", target: "_blank" %>
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+              <%= mail_to "rodrigo@rrmartins.com", image_tag('e_mail.png'), target: "_blank" %>
+            </li>
+            <li class="divider-vertical"></li>
+            <% if session[:auth] %>
+              <li style="margin-top: 1.5%;">
+                Bem-vindo, <%= session[:auth][:info][:name] %>!
+              </li>
+              <li class="divider-vertical"></li>
+              <li>
+                <%= link_to 'Logout', logout_path %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "Login no Twitter", "/auth/twitter" %>
+              </li>
+            <% end %>
+            <li class="divider-vertical"></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
 
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  <footer>
+    <hr>
+    <p class"footer_p">&copy; Company <%= Date.today.year %></p>
+  </footer>
+
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

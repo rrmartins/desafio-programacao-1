@@ -1,0 +1,12 @@
+<%= form_tag(sales_create_path, :multipart => true) do -%>
+  <h1>Cadastro de Venda(s)</h1>
+  <p>Envie o arquivo de lote de venda.</p>
+
+  <hr>
+  <%= label_tag "Arquivo" %>
+  <%= file_field_tag 'attachment' %>
+
+  <br>
+
+  <%= button_tag("Enviar", class: "btn btn-primary btn-medium") %>
+<% end -%>
